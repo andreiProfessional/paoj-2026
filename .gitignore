@@ -2,6 +2,10 @@
 previous-*
 private/
 
+# for tests:
+*.diff
+*.class
+
 # project settings
 .idea
 *.iml
