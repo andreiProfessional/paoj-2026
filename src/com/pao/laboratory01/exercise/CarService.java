@@ -80,7 +80,18 @@ public class CarService {
      * 4. Dacă nu o găsești (for-ul se termină), afișează "Mașina nu a fost găsită."
      */
     public void addReview(String carName, String review) {
-        // TODO: implementează aici
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getName().equals(carName)) {
+                String[] existing = cars[i].getReviews();
+                String[] updated = new String[existing.length + 1];
+                System.arraycopy(existing, 0, updated, 0, existing.length);
+                updated[updated.length - 1] = review;
+                cars[i].setReviews(updated);
+                System.out.println("Review adăugat pentru \"" + carName + "\" : " + review);
+                return;
+            }
+        }
+        System.out.println("Mașina nu a fost găsită.");
     }
 }
 
