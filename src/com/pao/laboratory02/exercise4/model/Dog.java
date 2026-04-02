@@ -2,7 +2,7 @@ package com.pao.laboratory02.exercise4.model;
 
 /**
  * ┌─────────────────────────────────────────────────────────────────────────┐
- * │  TODO — Implementează clasa Dog                                        │
+ * │  TODO — Implementează clasa Dog                                         │
  * └─────────────────────────────────────────────────────────────────────────┘
  *
  * Dog extinde Animal.
@@ -21,14 +21,13 @@ package com.pao.laboratory02.exercise4.model;
  *   d.toString() → "Dog{name='Rex', age=5}"
  */
 public class Dog extends Animal {
-
     public Dog(String name, int age) {
         super(name, age);
     }
 
     @Override
     public String sound() {
-        return ""; // TODO: returnează "Ham!"
+        return "Ham!";
     }
 }
 

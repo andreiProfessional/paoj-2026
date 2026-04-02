@@ -21,14 +21,13 @@ package com.pao.laboratory02.exercise4.model;
  *   c.toString() → "Cat{name='Miti', age=3}"
  */
 public class Cat extends Animal {
-
     public Cat(String name, int age) {
         super(name, age);
     }
 
     @Override
     public String sound() {
-        return ""; // TODO: returnează "Miau!"
+        return "Miau!";
     }
 }
 
