@@ -49,8 +49,46 @@ package com.pao.laboratory03.enums;
  */
 public class Main {
     public static void main(String[] args) {
-        // TODO: implementează pașii de mai sus
-        // Hint: creează mai întâi fișierul Priority.java în acest pachet
+
+        // a) Toate prioritățile
+        System.out.println("=== Toate prioritățile ===");
+        for (Priority p : Priority.values()) {
+            System.out.println(p.getEmoji() + " " + p.name() +
+                    " (level=" + p.getLevel() + ", color=" + p.getColor() + ")");
+        }
+
+        // b) Switch pe prioritate
+        System.out.println("\n=== Switch pe prioritate ===");
+        Priority current = Priority.HIGH;
+        switch (current) {
+            case LOW:
+                System.out.println("✅ Prioritate scăzută.");
+                break;
+            case MEDIUM:
+                System.out.println("ℹ️ Prioritate medie.");
+                break;
+            case HIGH:
+            case CRITICAL:
+                System.out.println("⚠️ Atenție! Prioritate ridicată!");
+                break;
+        }
+
+        // c) valueOf
+        System.out.println("\n=== valueOf ===");
+        Priority fromString = Priority.valueOf("HIGH");
+        System.out.println("Priority.valueOf(\"HIGH\") = " + fromString);
+
+        // d) Comparare cu ==
+        System.out.println("\n=== Comparare enum ===");
+        System.out.println("HIGH == HIGH? " + (Priority.HIGH == Priority.HIGH));
+        System.out.println("HIGH == LOW? " + (Priority.HIGH == Priority.LOW));
+
+        // e) name() și ordinal()
+        System.out.println("\n=== name() și ordinal() ===");
+        for (Priority p : Priority.values()) {
+            System.out.println(p.name() + ": name=" + p.name() + ", ordinal=" + p.ordinal());
+        }
     }
 }
+
 
