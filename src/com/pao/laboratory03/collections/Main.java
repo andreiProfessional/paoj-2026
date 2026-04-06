@@ -1,5 +1,7 @@
 package com.pao.laboratory03.collections;
 
+import java.util.*;
+
 /**
  * Exercițiul 1 — Colecții: HashMap și TreeMap
  *
@@ -48,9 +50,48 @@ package com.pao.laboratory03.collections;
  * Studenți la PAOJ: [Ana, Mihai, Ion]
  * Studenți la BD (actualizat): [Ana, Elena, George]
  */
+
 public class Main {
     public static void main(String[] args) {
-        // TODO: implementează cele 3 părți de mai sus
+
+        // === PARTEA A: HashMap — frecvența cuvintelor ===
+        System.out.println("=== PARTEA A: HashMap — frecvența cuvintelor ===");
+
+        String[] words = {"java", "python", "java", "c++", "python", "java", "rust", "c++", "go"};
+        HashMap<String, Integer> frecventa = new HashMap<>();
+
+        for (String word : words) {
+            frecventa.put(word, frecventa.getOrDefault(word, 0) + 1);
+        }
+
+        System.out.println("Frecvență: " + frecventa);
+        System.out.println("Conține 'rust'? " + frecventa.containsKey("rust"));
+        System.out.println("Chei: " + frecventa.keySet());
+        System.out.println("Valori: " + frecventa.values());
+
+        for (Map.Entry<String, Integer> entry : frecventa.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+        // === PARTEA B: TreeMap — sortare automată ===
+        System.out.println("\n=== PARTEA B: TreeMap — sortare automată ===");
+
+        TreeMap<String, Integer> sortat = new TreeMap<>(frecventa);
+        System.out.println("Sortat: " + sortat);
+        System.out.println("Prima cheie: " + sortat.firstKey());
+        System.out.println("Ultima cheie: " + sortat.lastKey());
+
+        // === PARTEA C: Map cu obiecte ===
+        System.out.println("\n=== PARTEA C: Map cu obiecte ===");
+
+        HashMap<String, List<String>> cursuri = new HashMap<>();
+        cursuri.put("PAOJ", new ArrayList<>(Arrays.asList("Ana", "Mihai", "Ion")));
+        cursuri.put("BD", new ArrayList<>(Arrays.asList("Ana", "Elena")));
+
+        System.out.println("Studenți la PAOJ: " + cursuri.get("PAOJ"));
+
+        cursuri.get("BD").add("George");
+        System.out.println("Studenți la BD (actualizat): " + cursuri.get("BD"));
     }
 }
 
