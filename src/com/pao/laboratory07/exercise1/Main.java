@@ -1,5 +1,6 @@
 package com.pao.laboratory07.exercise1;
 
+import com.pao.laboratory07.exercise1.OrderState;
 import com.pao.laboratory07.exercise1.exceptions.CannotCancelFinalOrderException;
 import com.pao.laboratory07.exercise1.exceptions.CannotRevertInitialOrderStateException;
 import com.pao.laboratory07.exercise1.exceptions.OrderIsAlreadyFinalException;
@@ -21,6 +22,7 @@ public class Main {
                 case next -> {
                     try {
                         order.nextState();
+                        System.out.println("Order state updated to: " + order.getCurrentState());
                     } catch (OrderIsAlreadyFinalException e) {
                         System.out.println("Order is already in a final state.");
                     }
@@ -28,6 +30,7 @@ public class Main {
                 case cancel -> {
                     try {
                         order.cancel();
+                        System.out.println("Order has been canceled.");
                     } catch (CannotCancelFinalOrderException e) {
                         System.out.println("Cannot cancel a final state order.");
                     }
@@ -35,8 +38,9 @@ public class Main {
                 case undo -> {
                     try {
                         order.undoState();
+                        System.out.println("Order state reverted to: " + order.getCurrentState());
                     } catch (CannotRevertInitialOrderStateException e) {
-                        System.out.println("Cannot undo the initial order state.");
+                        System.out.println("Nu există stare anterioară pentru undo.");
                     }
                 }
                 case QUIT -> {
