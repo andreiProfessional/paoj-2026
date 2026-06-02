@@ -1,0 +1,2 @@
+-- Append this to schema.sql (or run separately) to add the account_status_log table.
+-- Already included in schema.sql by SchemaInitializer.
